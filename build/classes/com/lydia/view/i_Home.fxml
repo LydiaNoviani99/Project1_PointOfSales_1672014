@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="bpHome" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="775.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lydia.controller.I_HomeController">
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefHeight="415.0" prefWidth="769.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="274.0" minHeight="10.0" prefHeight="250.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="281.0" minHeight="10.0" prefHeight="103.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="243.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="imgLogo" fitHeight="263.0" fitWidth="232.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/cart.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label prefHeight="68.0" prefWidth="438.0" text="Selamat Datang">
+                           <font>
+                              <Font name="Papyrus" size="60.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label text="di Point Of Sales (POS)">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </GridPane>
+         </children>
+      </HBox>
+   </center>
+   <top>
+      <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="menuFile" mnemonicParsing="false" onAction="#menuFileOnAction" text="File">
+            <items>
+                  <MenuItem fx:id="menuLogout" mnemonicParsing="false" onAction="#menuLogoutOnAction" text="Log Out" />
+                  <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#menuExitOnAction" text="Exit" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuDataBarang" mnemonicParsing="false" onAction="#menuDataBarangOnAction" text="Data Barang">
+            <items>
+              <MenuItem fx:id="menuKelolaDataBarang" mnemonicParsing="false" onAction="#menuKelolaDataBarangOnAction" text="Kelola Data Barang" />
+                  <MenuItem fx:id="menuCetakBarang" mnemonicParsing="false" onAction="#menuCetakBarangOnAction" text="Cetak" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuDataUser" mnemonicParsing="false" onAction="#menuDataUserOnAction" text="Data User">
+            <items>
+              <MenuItem fx:id="menuKelolaDataUser" mnemonicParsing="false" onAction="#menuKelolaDataUserOnAction" text="Kelola Data User" />
+                  <MenuItem fx:id="menuCetakUser" mnemonicParsing="false" onAction="#menuCetakUserOnAction" text="Cetak" />
+            </items>
+          </Menu>
+            <Menu fx:id="menuTransaksi" mnemonicParsing="false" onAction="#menuTransaksiOnAction" text="Transaksi">
+               <items>
+                  <MenuItem fx:id="menuKelolaDataTransaksi" mnemonicParsing="false" onAction="#menuKelolaDataTransaksiOnAction" text="Kelola Data Transaksi" />
+                  <MenuItem fx:id="menuCetakTransaksi" mnemonicParsing="false" onAction="#menuCetakTransaksiOnAction" text="Cetak" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuLaporan" mnemonicParsing="false" onAction="#menuLaporanOnAction" text="Laporan">
+               <items>
+                  <MenuItem fx:id="menuLaporanPenjualan" mnemonicParsing="false" onAction="#menuLaporanPenjualanOnAction" text="Laporan Penjualan" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuAbout" mnemonicParsing="false" onAction="#menuAboutOnAction" text="About">
+               <items>
+                  <MenuItem fx:id="menuAboutMe" mnemonicParsing="false" onAction="#menuAboutMeOnAction" text="AboutMe" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="35.0" prefWidth="780.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="2018 @Copyright Lydia Noviani Kusumo - 1672014" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
