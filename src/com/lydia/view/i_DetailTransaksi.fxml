@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="775.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lydia.view.I_DetailTransaksiController">
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <HBox alignment="CENTER" prefHeight="412.0" prefWidth="715.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefHeight="412.0" prefWidth="829.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="454.0" prefWidth="775.0">
+                     <children>
+                        <TableView fx:id="tableTransaksi" prefHeight="431.0" prefWidth="743.0">
+                           <columns>
+                              <TableColumn fx:id="colTgl_Transaksi" prefWidth="75.0" text="Tgl_Transaksi" />
+                              <TableColumn fx:id="colKd_Transaksi" prefWidth="75.0" text="Kd_Transaksi" />
+                              <TableColumn fx:id="colKd_User" prefWidth="75.0" text="Kd_User" />
+                              <TableColumn fx:id="colNama_User" prefWidth="75.0" text="Nm_User" />
+                              <TableColumn fx:id="colKd_Barang" prefWidth="75.0" text="Kd_Barang" />
+                              <TableColumn fx:id="colNama_Barang" prefWidth="95.0" text="Nm_Barang" />
+                              <TableColumn fx:id="colJml" prefWidth="40.0" text="Jml" />
+                              <TableColumn fx:id="colHrg_Satuan" prefWidth="91.0" text="Hrg_Satuan" />
+                              <TableColumn fx:id="colTotal_Belanja" prefWidth="75.0" text="Total_Belanja" />
+                              <TableColumn fx:id="colPembayaran" prefWidth="75.0" text="Pembayaran" />
+                              <TableColumn fx:id="colKembalian" prefWidth="75.0" text="Kembalian" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                     <GridPane.margin>
+                        <Insets top="15.0" />
+                     </GridPane.margin>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
