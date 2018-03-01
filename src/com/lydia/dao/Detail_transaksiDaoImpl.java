@@ -125,7 +125,7 @@ public class Detail_transaksiDaoImpl implements
         try {
             try (Connection connection = Koneksi.createConnection()) {
                 String query
-                        = "SELECT t.tgl_Transaksi, t.kd_Transaksi, b.kd_Barang, b.nm_Barang, dt.jml, dt.saling_price,u.kd_User FROM detail_transaksi dt JOIN transaksi t ON dt.transaksi_kd_Transaksi = t.kd_Transaksi JOIN User u ON t.user_kd_User = u.kd_User JOIN Barang b ON b.kd_Barang = dt.barang_kd_Barang WHERE LEFT(t.tgl_Transaksi,4) = LEFT(?,4) ORDER BY kd_Barang ";
+                        = "SELECT t.tgl_Transaksi, t.kd_Transaksi, b.kd_Barang, b.nm_Barang, dt.jml, dt.saling_price,u.kd_User FROM detail_transaksi dt JOIN transaksi t ON dt.transaksi_kd_Transaksi = t.kd_Transaksi JOIN User u ON t.user_kd_User = u.kd_User JOIN Barang b ON b.kd_Barang = dt.barang_kd_Barang WHERE LEFT(t.tgl_Transaksi,4) = LEFT(?,4) ORDER BY dt.transaksi_kd_Transaksi ASC ";
 
                 PreparedStatement ps = connection.prepareStatement(query);
 

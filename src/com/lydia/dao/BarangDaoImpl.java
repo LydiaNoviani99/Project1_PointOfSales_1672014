@@ -169,10 +169,10 @@ public class BarangDaoImpl implements DaoService<Barang> {
         try {
             try (Connection connection = Koneksi.createConnection()) {
                 String query
-                        = "SELECT b.kd_Barang,b.nm_Barang,SUM(dt.jml) AS 'Jumlah Terjual' ,((SUM(dt.jml) )*dt.saling_price) AS 'Total' from transaksi t JOIN detail_transaksi dt ON t.kd_Transaksi = dt.transaksi_kd_Transaksi JOIN Barang b ON b.kd_Barang = dt.barang_kd_Barang where t.tgl_Transaksi BETWEEN  t.tgl_Transasi = ? AND t.tgl_Transasi = ? GROUP BY b.kd_Barang, b.nm_Barang ORDER BY SUM(dt.jml) DESC";
+                        = "SELECT b.kd_Barang,b.nm_Barang,SUM(dt.jml) AS 'Jumlah Terjual' ,((SUM(dt.jml) )*dt.saling_price) AS 'Total' from transaksi t JOIN detail_transaksi dt ON t.kd_Transaksi = dt.transaksi_kd_Transaksi JOIN Barang b ON b.kd_Barang = dt.barang_kd_Barang where t.tgl_Transaksi > '2018-02-27' AND t.tgl_Transaksi < '2018-03-01' GROUP BY b.kd_Barang, b.nm_Barang ORDER BY SUM(dt.jml) DESC";
                 PreparedStatement ps = connection.prepareStatement(query);
-                ps.setString(1, object);
-                ps.setString(2, object2);
+//                ps.setString(1, object);
+//                ps.setString(2, object2);
                 ResultSet rs = ps.executeQuery();
 
                 while (rs.next()) {
@@ -180,8 +180,6 @@ public class BarangDaoImpl implements DaoService<Barang> {
 
                     barang.setKd_Barang(rs.getInt("kd_Barang"));
                     barang.setNm_Barang(rs.getString("nm_Barang"));
-                    barang.setStock(rs.getInt("stock"));
-                    barang.setHrg_Jual(rs.getInt("hrg_Jual"));
 
                     barangs.add(barang);
                 }

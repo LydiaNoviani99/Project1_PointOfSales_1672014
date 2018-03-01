@@ -109,6 +109,7 @@ public class I_LoginController implements Initializable {
                             "view/i_Home.fxml"));
                     BorderPane root = loader.load();
                     Scene scene = new Scene(root);
+                    i_HomeStage.setTitle("Selamat Datang di PT.Haleluya");
                     I_HomeController i_HomeController = loader.
                             getController();
                     i_HomeController.setLoginController(this, selectedUser);

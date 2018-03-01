@@ -25,6 +25,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -65,13 +66,13 @@ public class I_LaporanController implements Initializable {
     @FXML
     private TableView<Barang> tableLaporanPenjualanTertinggi;
     @FXML
-    private TableColumn<Detail_transaksi, String> colKdBarangTertinggi;
+    private TableColumn<Barang, String> colKdBarangTertinggi;
     @FXML
-    private TableColumn<Detail_transaksi, String> colNmBarangTertingi;
+    private TableColumn<Barang, String> colNmBarangTertingi;
     @FXML
-    private TableColumn<Detail_transaksi, String> colJmlTerjualTertinggi;
+    private TableColumn<Barang, String> colJmlTerjualTertinggi;
     @FXML
-    private TableColumn<Detail_transaksi, String> colTotalTertinggi;
+    private TableColumn<Barang, String> colTotalTertinggi;
 
     /**
      * Initializes the controller class.
@@ -165,27 +166,24 @@ public class I_LaporanController implements Initializable {
                 -> new SimpleStringProperty(String.valueOf(param.getValue().
                         getSaling_price() * param.getValue().getJml())));
 
-        //
-//        tableLaporanPenjualanTertinggi.setItems(barangs);
-        colKdBarangTertinggi.setCellValueFactory((
-                TableColumn.CellDataFeatures<Detail_transaksi, String> param)
-                -> new SimpleStringProperty(String.valueOf(param.
-                        getValue().getTransaksi_kd_Transaksi())));
-        colNmBarangTertingi.setCellValueFactory((
-                TableColumn.CellDataFeatures<Detail_transaksi, String> param)
-                -> new SimpleStringProperty(String.valueOf(param.
-                        getValue().getBarang_kd_Barang().getNm_Barang())));
+        tableLaporanPenjualanTertinggi.setItems(barangs);
 
-        colJmlTerjualTertinggi.setCellValueFactory((
-                TableColumn.CellDataFeatures<Detail_transaksi, String> param)
-                -> new SimpleStringProperty(String.valueOf(param.
-                        getValue().getJml())));
+        colKdBarangTertinggi.setCellValueFactory(new PropertyValueFactory<>(
+                "kd_Barang"));
+        colNmBarangTertingi.setCellValueFactory(new PropertyValueFactory<>(
+                "nm_Barang"));
+
+        colJmlTerjualTertinggi.
+                setCellValueFactory((
+                        TableColumn.CellDataFeatures<Barang, String> param)
+                        -> new SimpleStringProperty(String.valueOf(param.
+                        getValue().getHrg_Jual())));
+
         colTotalTertinggi.
                 setCellValueFactory((
-                        TableColumn.CellDataFeatures<Detail_transaksi, String> param)
+                        TableColumn.CellDataFeatures<Barang, String> param)
                         -> new SimpleStringProperty(String.valueOf(param.
-                        getValue().getBarang_kd_Barang()) + param.getValue().
-                                getBarang_kd_Barang().getNm_Barang()));
+                        getValue().getStock())));
 
     }
 
@@ -204,10 +202,6 @@ public class I_LaporanController implements Initializable {
     }
 
     @FXML
-    private void btnBackAction(ActionEvent event) {
-    }
-
-    @FXML
     private void btnLihatLaporanTertinggiOnAction(ActionEvent event) {
         if (dpDari.getValue().isBefore(dpSampai.getValue())) {
             if (barangs != null) {
@@ -215,12 +209,13 @@ public class I_LaporanController implements Initializable {
                 barangs.addAll(getBarangDao().showTopData(dpDari.getValue().
                         toString(), dpSampai.getValue().toString()));
             } else {
-//                getBarang(dpDari.getValue().
-//                        toString(),
-//                        dpSampai.getValue().toString());
+                getBarang(dpDari.getValue().
+                        toString(),
+                        dpSampai.getValue().toString());
                 tableLaporanPenjualanTertinggi.refresh();
-                tableLaporanPenjualanTertinggi.setItems(getBarang(dpDari.
-                        getValue().toString(), dpSampai.getValue().toString()));
+                tableLaporanPenjualanTertinggi.setItems(barangs);
+                System.out.println("size :" + barangs.size());
+
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);

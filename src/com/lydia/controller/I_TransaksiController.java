@@ -16,7 +16,6 @@ import com.lydia.entity.User;
 import com.lydia.utility.Koneksi;
 import com.lydia.utility.Utility;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -204,11 +203,8 @@ public class I_TransaksiController implements Initializable {
                 if (Integer.valueOf(txtPembayaran.getText()) >= Integer.valueOf(
                         txtTotalBelanja.getText())) {
 
-                    Timestamp t = new Timestamp(System.currentTimeMillis());
-
                     Transaksi transaksi = new Transaksi();
 
-//                    transaksi.setTgl_Transaksi(String.valueOf(t));
                     getTransaksi().setKd_Transaksi(Integer.valueOf(
                             txtNoTransaksi.
                                     getText().trim()));

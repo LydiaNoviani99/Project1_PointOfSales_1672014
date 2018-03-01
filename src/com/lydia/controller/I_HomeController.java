@@ -112,6 +112,7 @@ public class I_HomeController implements Initializable {
             loader.setLocation(MainApp.class.getResource("view/i_Login.fxml"));
             BorderPane borderPane = loader.load();
             Scene scene = new Scene(borderPane);
+            homeStage.setTitle("Sistem Point Of Sales (POS)");
             I_LoginController i_LoginController = loader.getController();
             homeStage.setScene(scene);
             homeStage.showAndWait();
@@ -141,6 +142,7 @@ public class I_HomeController implements Initializable {
             loader.setLocation(MainApp.class.getResource("view/i_Barang.fxml"));
             BorderPane borderPane = loader.load();
             Scene scene = new Scene(borderPane);
+            barangStage.setTitle("Kelola Data Barang");
             I_BarangController i_BarangController = loader.getController();
             i_BarangController.setHomeController(this);
             barangStage.initOwner(bpHome.getScene().getWindow());
@@ -173,6 +175,7 @@ public class I_HomeController implements Initializable {
                     "view/i_UserKaryawan.fxml"));
             BorderPane borderPane = loader.load();
             Scene scene = new Scene(borderPane);
+            userStage.setTitle("Kelola Data User");
             I_UserKaryawanController i_UserKaryawanController = loader.
                     getController();
             i_UserKaryawanController.setHomeController(this);
@@ -208,6 +211,7 @@ public class I_HomeController implements Initializable {
                             getResource("view/i_Transaksi.fxml"));
             BorderPane borderPane = loader.load();
             Scene scene = new Scene(borderPane);
+            transaksiStage.setTitle("Kelola Data Transaksi");
             I_TransaksiController i_TransaksiController = loader.getController();
             i_TransaksiController.setHomeController(this);
             System.out.println(this);
@@ -242,6 +246,7 @@ public class I_HomeController implements Initializable {
                             getResource("view/i_Laporan.fxml"));
             BorderPane borderPane = loader.load();
             Scene scene = new Scene(borderPane);
+            laporanStage.setTitle("Laporan Penjualan PT.Haleluya");
             I_LaporanController i_LaporanController = loader.getController();
             System.out.println(this);
             laporanStage.initOwner(bpHome.getScene().getWindow());
