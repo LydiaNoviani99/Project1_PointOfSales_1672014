@@ -203,23 +203,29 @@ public class I_LaporanController implements Initializable {
 
     @FXML
     private void btnLihatLaporanTertinggiOnAction(ActionEvent event) {
-        if (dpDari.getValue().isBefore(dpSampai.getValue())) {
-            if (barangs != null) {
-                barangs.clear();
-                barangs.addAll(getBarangDao().showTopData(dpDari.getValue().
-                        toString(), dpSampai.getValue().toString()));
-            } else {
-                getBarang(dpDari.getValue().
-                        toString(),
-                        dpSampai.getValue().toString());
-                tableLaporanPenjualanTertinggi.refresh();
-                tableLaporanPenjualanTertinggi.setItems(barangs);
-                System.out.println("size :" + barangs.size());
+        if (dpDari.getValue() != null && dpDari.getValue() != null) {
+            if (dpDari.getValue().isBefore(dpSampai.getValue())) {
+                if (barangs != null) {
+                    barangs.clear();
+                    barangs.addAll(getBarangDao().showTopData(dpDari.getValue().
+                            toString(), dpSampai.getValue().toString()));
+                } else {
+                    getBarang(dpDari.getValue().
+                            toString(),
+                            dpSampai.getValue().toString());
+                    tableLaporanPenjualanTertinggi.refresh();
+                    tableLaporanPenjualanTertinggi.setItems(barangs);
+                    System.out.println("size :" + barangs.size());
 
+                }
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Tanggal input tidak valid");
+                alert.showAndWait();
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Tanggal input tidak valid");
+            alert.setContentText("Input tanggal terlebih dahulu");
             alert.showAndWait();
         }
     }
