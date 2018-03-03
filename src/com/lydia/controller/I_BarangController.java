@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author Lydia (1672014)
+ * @author Lydia (1672014) a
  */
 public class I_BarangController implements Initializable {
 
